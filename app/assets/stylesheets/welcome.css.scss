@@ -14,6 +14,10 @@ body {
 
 .article {
 	float: left;
+	padding: 15px;
+}
+
+.article-content {
 	background-color: white;
 	border: 2px solid #CCCCCC;
 	border-top: 5px solid #00ACC1;
@@ -26,7 +30,7 @@ body {
 }
 
 .text {
-	margin-top: 10px;
+	margin: 10px 0 30px 0;
 }
 
 .date {
@@ -44,15 +48,19 @@ body {
 }
 
 .date-ranking-part {
-	margin: 30px 0 10px 0;
+	margin: 10px 0;
 }
 
 // Article Detail
 
 .detail-article {
+	margin-bottom: 30px;
+}
+
+.detail-article-content {
 	background-color: white;
 	border: 2px solid #CCCCCC;
-	margin-bottom: 30px;
+	padding: 15px;
 }
 
 .detail-date-ranking-part {
@@ -64,7 +72,26 @@ body {
 }
 
 .other-posts {
+	float: right;
+}
+
+.other-posts-content {
 	background-color: white;
 	border: 2px solid #CCCCCC;
-	float: right;
+	padding: 15px;
+}
+
+// Create Article
+
+.new_article {
+	margin: 0 25%;
+}
+
+form {
+	width: 100%;
+}
+
+input, textarea {
+	width: 100%;
+	margin-bottom: 10px;
 }

@@ -19,6 +19,7 @@
 //= require underscore
 //= require backbone
 //= require backbone.marionette
+//= require jquery.wookmark
 
 //= require siattips
 //= require_tree ./siattips/templates
