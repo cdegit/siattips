@@ -1,11 +1,27 @@
-App.Views.IndexView = Marionette.CollectionView.extend({
+App.Views.IndexView = Marionette.ItemView.extend({
   id: 'index-view',
-  className: 'row',
-  //template: JST['siattips/templates/views/index_template'],
-  childView: App.Views.ArticleListItemView,
+  template: JST['siattips/templates/views/index_template'],
+
+  ui: {
+  	$featuredContainer: '.featured-container',
+  	$collectionContainer: '.collection-container'
+  },
 
   initialize: function(options) {
-  	this.collection = App.router.collections.articles;
-  	this.collection.fetch({async: false});
+  	this.articlesCollectionView = new App.Views.ArticleCollectionView();
+
+  	var featuredModel = new App.Models.Article({
+  		id: 1
+  	});
+  	featuredModel.fetch({async: false});
+  	this.featuredArticleView = new App.Views.ArticleListItemView({
+  		model: featuredModel
+  	});
+
+  },
+
+  onRender: function() {
+  	this.ui.$featuredContainer.append(this.featuredArticleView.render().$el);
+  	this.ui.$collectionContainer.append(this.articlesCollectionView.render().$el);
   }
 });
