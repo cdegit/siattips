@@ -20,5 +20,9 @@ App.Views.ArticleDetailView = Marionette.ItemView.extend({
 
   onRender: function() {
     this.ui.$ranking.append(this.ratingsView.render().$el);
+
+    if (this.model.get("category")) {
+      this.$el.attr("data-filter-class", '["' + this.model.get("category").name + '"]' );
+    }
   }
 });
