@@ -27,5 +27,64 @@ App.Views.IndexView = Marionette.ItemView.extend({
   	this.ui.$featuredContainer.append(this.featuredArticleView.render().$el);
   	this.ui.$collectionContainer.append(this.articlesCollectionView.render().$el);
     this.ui.$filtersContainer.prepend(this.categoriesCollectionView.render().$el);
+
+    this.ui.$collectionContainer.imagesLoaded(function() {
+      // Prepare layout options.
+      var options = {
+        itemWidth: 300, // Optional min width of a grid item
+        autoResize: true, // This will auto-update the layout when the browser window is resized.
+        container: $('.collection-container'), // Optional, used for some extra CSS styling
+        offset: 20, // Optional, the distance between grid items
+        outerOffset: 10, // Optional the distance from grid to parent
+        flexibleWidth: '50%', // Optional, the maximum width of a grid item
+        ignoreInactiveItems: false,
+          comparator: function(a, b) {
+            return $(a).hasClass('inactive') && !$(b).hasClass('inactive') ? 1 : -1;
+          }
+      };
+
+      // Get a reference to your grid items.
+      var handler = $('.collection-container .article');
+      var filters = $('#filters li');
+
+      // Flexible layout
+      var $window = $(window);
+      $window.resize(function() {
+        var windowWidth = $window.width(),
+            newOptions = { flexibleWidth: '50%' };
+
+        // Breakpoint
+        if (windowWidth < 1024) {
+          newOptions.flexibleWidth = '100%';
+        }
+
+        handler.wookmark(newOptions);
+      });
+
+      // Filter event
+      var onClickFilter = function(event) {
+          var item = $(event.currentTarget),
+              activeFilters = [];
+          item.toggleClass('active');
+
+          // Collect active filter strings
+          filters.filter('.active').each(function() {
+            activeFilters.push($(this).data('filter'));
+          });
+
+          handler.wookmarkInstance.filter(activeFilters, 'or');
+        }
+
+      // Call the layout function.
+      handler.wookmark(options);
+
+      filters.click(onClickFilter);
+    });
+  },
+
+  onClose: function() {
+    this.categoriesCollectionView.close();
+    this.featuredContainer.close();
+    this.filtersContainer.close();
   }
 });
