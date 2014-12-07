@@ -1,4 +1,15 @@
 <div class="featured-container"></div>
+
+<div class="filter-control">
+	<ol id="filters">
+	  <li data-filter="illustrator">Illustrator</li>
+	  <li data-filter="photoshop">Photoshop</li>
+	  <li data-filter="html/css">HTML/CSS</li>
+	  <li data-filter="sass">Sass</li>
+	  <li data-filter="bootstrap">Bootstrap</li>
+	</ol>
+</div>
+
 <div class="collection-container"></div>
 
 <script type="text/javascript">
@@ -11,12 +22,18 @@
 	      container: $('.collection-container'), // Optional, used for some extra CSS styling
 	      offset: 20, // Optional, the distance between grid items
 	      outerOffset: 10, // Optional the distance from grid to parent
-	      flexibleWidth: '50%' // Optional, the maximum width of a grid item
+	      flexibleWidth: '50%', // Optional, the maximum width of a grid item
+	      ignoreInactiveItems: false,
+          comparator: function(a, b) {
+            return $(a).hasClass('inactive') && !$(b).hasClass('inactive') ? 1 : -1;
+          }
 	    };
 
 	    // Get a reference to your grid items.
 	    var handler = $('.collection-container .article');
+	    var filters = $('#filters li');
 
+	    // Flexible layout
 	    var $window = $(window);
 	    $window.resize(function() {
 	      var windowWidth = $window.width(),
@@ -30,8 +47,24 @@
 	      handler.wookmark(newOptions);
 	    });
 
+	    // Filter event
+	    var onClickFilter = function(event) {
+          var item = $(event.currentTarget),
+              activeFilters = [];
+          item.toggleClass('active');
+
+          // Collect active filter strings
+          filters.filter('.active').each(function() {
+            activeFilters.push($(this).data('filter'));
+          });
+
+          handler.wookmarkInstance.filter(activeFilters, 'or');
+        }
+
 	    // Call the layout function.
 	    handler.wookmark(options);
+
+	    filters.click(onClickFilter);
 	  });
 	})(jQuery);
 </script>

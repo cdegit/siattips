@@ -31,6 +31,65 @@ body {
   padding: 4px;
 }
 
+// Filters & Animation
+
+.collection-container .article {
+  -webkit-transition: all 0.3s ease-out;
+     -moz-transition: all 0.3s ease-out;
+       -o-transition: all 0.3s ease-out;
+          transition: all 0.3s ease-out;
+}
+
+.filter-control {
+	height: 50px;
+	background-color: black;
+	margin: 20px 25px 0px 25px;
+	border-radius: 5px;
+}
+
+#filters {
+  list-style-type: none;
+  text-align: center;
+  margin: 0 5% 0 5%;
+  padding-left: 10%;
+}
+
+#filters li {
+  color: #777;
+  font-size: 12px;
+  float: left;
+  padding: 6px 0 4px 0;
+  cursor: pointer;
+  margin: 12px 1% 0 1%;
+  width: 15%;
+  -webkit-transition: all 0.15s ease-out;
+     -moz-transition: all 0.15s ease-out;
+       -o-transition: all 0.15s ease-out;
+          transition: all 0.15s ease-out;
+  -webkit-border-radius: 3px;
+     -moz-border-radius: 3px;
+          border-radius: 3px;
+}
+
+#filters li:hover {
+  background: #00ACC1;
+  color: #ffffff;
+}
+
+#filters li.active {
+  background: #00ACC1;
+  color: #ffffff;
+}
+
+.collection-container .article.inactive {
+  visibility: visible;
+  opacity: .2;
+  filter: alpha(opacity=20); /* IE 7 and Earlier */
+  /* Next 2 lines IE8 */
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=20)";
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=20);
+}
+
 // All articles
 
 .article-content {
