@@ -1,4 +1,5 @@
 class CategoriesController < ApplicationController
+  http_basic_authenticate_with :name => ENV['username'], :password => ENV['password'], :only => [:new]
 
   def new
 
