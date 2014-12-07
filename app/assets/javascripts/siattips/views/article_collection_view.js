@@ -1,5 +1,5 @@
 App.Views.ArticleCollectionView = Marionette.CollectionView.extend({
-  className: 'row',
+  // className: 'row',
   childView: App.Views.ArticleListItemView,
 
   initialize: function(options) {

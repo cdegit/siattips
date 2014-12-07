@@ -19,6 +19,8 @@
 //= require underscore
 //= require backbone
 //= require backbone.marionette
+
+//= require jquery.imagesloaded
 //= require jquery.wookmark
 
 //= require siattips

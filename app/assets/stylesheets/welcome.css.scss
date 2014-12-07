@@ -10,17 +10,31 @@ body {
 	margin-top: 80px;
 }
 
-// Article
+// Article with Modified Wookmark Plugin CSS
 
-.article {
-	float: left;
-	padding: 15px;
+.collection-container {
+	position: relative; /** Needed to ensure items are laid out relative to this container **/
+	margin: 15px;
+	padding: 0;
 }
+
+.collection-container .article {
+  width: 200px;
+  background-color: #ffffff;
+  border: 2px solid #CCCCCC;
+  border-top: 5px solid #00ACC1;
+          border-radius: 2px;
+     -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  display: none;
+  cursor: pointer;
+  padding: 4px;
+}
+
+// All articles
 
 .article-content {
 	background-color: white;
-	border: 2px solid #CCCCCC;
-	border-top: 5px solid #00ACC1;
 	padding: 15px;
 }
 
@@ -49,6 +63,22 @@ body {
 
 .date-ranking-part {
 	margin: 10px 0;
+}
+
+// Featured container
+
+.featured-container {
+	margin: 25px;
+}
+
+.featured-container .article {
+	border: 2px solid #CCCCCC;
+	padding: 15px;
+	background-color: white;
+}
+
+.featured-container .article img {
+
 }
 
 // Article Detail
@@ -85,6 +115,9 @@ body {
 
 .new_article {
 	margin: 0 25%;
+	background-color: white;
+	border: 2px solid #CCCCCC;
+	padding: 15px;
 }
 
 form {
