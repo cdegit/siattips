@@ -47,11 +47,24 @@ body {
 	border-radius: 5px;
 }
 
+#search-bar {
+	width: 30%;
+	display: inline-block;
+
+	.input-group {
+		margin-top: -41px;
+		padding-right: 4px;
+	}
+}
+
 #filters {
   list-style-type: none;
   text-align: center;
-  margin: 0 5% 0 5%;
-  padding-left: 10%;
+  margin: 0 2%;
+  padding-left: 0;
+  width: 65%;
+  height: 50px;
+  display: inline-block;
 }
 
 #filters li {
@@ -69,6 +82,30 @@ body {
   -webkit-border-radius: 3px;
      -moz-border-radius: 3px;
           border-radius: 3px;
+}
+
+@media screen and (max-width: 768px) {
+	.filter-control {
+		height: 100px;
+	}
+
+	#filters {
+		width: 100%;
+		margin: 0 5%;
+
+		li {
+			width: 15%;
+		}
+	}
+
+    #search-bar {
+		width: 100%;
+
+		.input-group {
+			margin-top: 0px;
+			padding: 0 10px;
+		}
+	}
 }
 
 #filters li:hover {
