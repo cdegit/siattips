@@ -15,6 +15,7 @@ App.addInitializer(function() {
    
     collections: {
       articles: new App.Collections.Articles(),
+      categories: new App.Collections.Categories()
     },
    
     // from: http://stackoverflow.com/a/16191880/3670758

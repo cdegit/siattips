@@ -4,7 +4,8 @@ App.Views.IndexView = Marionette.ItemView.extend({
 
   ui: {
   	$featuredContainer: '.featured-container',
-  	$collectionContainer: '.collection-container'
+  	$collectionContainer: '.collection-container',
+    $filtersContainer: '.filter-control'
   },
 
   initialize: function(options) {
@@ -18,10 +19,13 @@ App.Views.IndexView = Marionette.ItemView.extend({
   		model: featuredModel
   	});
 
+    this.categoriesCollectionView = new App.Views.CategoryCollectionView();
+
   },
 
   onRender: function() {
   	this.ui.$featuredContainer.append(this.featuredArticleView.render().$el);
   	this.ui.$collectionContainer.append(this.articlesCollectionView.render().$el);
+    this.ui.$filtersContainer.prepend(this.categoriesCollectionView.render().$el);
   }
 });
