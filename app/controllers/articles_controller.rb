@@ -1,5 +1,6 @@
 class ArticlesController < ApplicationController
   skip_before_filter :verify_authenticity_token, :only => [:add_rating]
+  http_basic_authenticate_with :name => ENV['username'], :password => ENV['password'], :only => [:new]
 
   def new
 

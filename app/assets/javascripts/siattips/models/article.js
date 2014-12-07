@@ -1,5 +1,5 @@
 App.Models.Article = Backbone.Model.extend({
-  urlRoot: '/articles',
+  urlRoot: '/api/articles',
 
   addRating: function(rating) {
   	return $.post("/articles/" + this.get("id") + "/add_rating", {rating: rating});

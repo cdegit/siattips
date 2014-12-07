@@ -41,3 +41,5 @@ gem 'spring',        group: :development
 gem 'ejs'
 
 gem 'twitter-bootstrap-rails'
+
+gem "figaro"
