@@ -14,7 +14,7 @@ App.Views.IndexView = Marionette.ItemView.extend({
   		id: 1
   	});
   	featuredModel.fetch({async: false});
-  	this.featuredArticleView = new App.Views.ArticleListItemView({
+  	this.featuredArticleView = new App.Views.FeaturedArticleView({
   		model: featuredModel
   	});
 
