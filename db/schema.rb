@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141205060542) do
+ActiveRecord::Schema.define(version: 20141207010721) do
 
   create_table "articles", force: true do |t|
     t.string   "title"
@@ -21,7 +21,8 @@ ActiveRecord::Schema.define(version: 20141205060542) do
     t.string   "link"
     t.string   "thumb_url"
     t.integer  "category_id"
-    t.integer  "rating"
+    t.float    "rating"
+    t.integer  "ratings_count"
   end
 
   add_index "articles", ["category_id"], name: "index_articles_on_category_id"

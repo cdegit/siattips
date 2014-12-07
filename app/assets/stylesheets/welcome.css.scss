@@ -59,8 +59,11 @@ body {
 	float: right;
 	padding: 0;
 	text-align: right;
-}
 
+	.ratings-view:hover:not(.rated) {
+		color: teal;
+	}
+}
 .date-ranking-part {
 	margin: 10px 0;
 }
