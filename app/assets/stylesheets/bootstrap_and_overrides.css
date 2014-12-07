@@ -6,16 +6,22 @@
   =require twitter-bootstrap-static/fontawesome
   */
 
-  .article h2 {
-  	color: black;
+  .article h2 a {
   	word-wrap: break-word;
+    text-decoration: none;
+    color: black;
   }
 
-  .link {
+  .article h2 a:hover {
+    color: #707070;
+  }
+
+  .link:link {
   	color: #00ACC1;
+    text-decoration: none;
   }
 
-  .link:hover {
+  .link:hover, .link:active, .link:visited {
   	text-decoration: none;
   }
 

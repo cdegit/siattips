@@ -7,7 +7,7 @@ body {
 }
 
 #index-view, #detail-view {
-	margin-top: 80px;
+	margin-top: 70px;
 }
 
 // Article with Modified Wookmark Plugin CSS
@@ -125,6 +125,9 @@ body {
   /* Next 2 lines IE8 */
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=20)";
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=20);
+
+  pointer-events: none;
+  cursor: default;
 }
 
 // All articles
@@ -155,6 +158,7 @@ body {
 	float: right;
 	padding: 0;
 	text-align: right;
+	margin-top: -2px;
 
 	.ratings-view:hover:not(.rated) {
 		color: teal;
@@ -176,10 +180,6 @@ body {
 	background-color: white;
 }
 
-.featured-container .article img {
-
-}
-
 // Article Detail
 
 .detail-article {
@@ -190,24 +190,58 @@ body {
 	background-color: white;
 	border: 2px solid #CCCCCC;
 	padding: 15px;
+
+	.link {
+		float: left;
+		padding: 0;
+	}
 }
 
 .detail-date-ranking-part {
 	margin: 10px 0 20px 0;
+	text-align: left;
+
+	.date {
+		margin-right: 10px;
+	}
+
+	.ranking {
+		float: left;
+		padding-left: 0;
+		text-align: left;
+		margin-top: -2px;
+	}
 }
 
 .rate {
 	margin: 50px 0 30px 0;
+
+	.ranking {
+		float: left;
+		text-align: left;
+	}
 }
 
 .other-posts {
 	float: right;
+	padding-left: 0;
+	margin-bottom: 15px;
 }
 
 .other-posts-content {
 	background-color: white;
 	border: 2px solid #CCCCCC;
 	padding: 15px;
+}
+
+@media screen and (max-width: 768px) { 
+	.detail-article {
+		margin-bottom: 15px;
+	}
+
+	.other-posts {
+		padding-left: 15px;
+	}
 }
 
 // Create Article
@@ -226,4 +260,16 @@ form {
 input, textarea {
 	width: 100%;
 	margin-bottom: 10px;
+}
+
+.about-view {
+	h3 {
+		margin-top: 30px;
+	}
+
+	.other-posts-content {
+		img {
+			width: 100%;
+		}
+	}
 }
