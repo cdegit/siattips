@@ -23,7 +23,6 @@ App.Layouts.MainLayout = Marionette.LayoutView.extend({
   },
 
   showView: function(route, params) {
-    console.log("new view") 
     var viewName = this.viewClasses[route];
     var view = new App.Views[viewName]({
       params: params

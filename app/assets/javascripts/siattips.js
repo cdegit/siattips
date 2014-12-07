@@ -63,13 +63,13 @@ App.addInitializer(function() {
   });
 
   App.router = new router();
-  Backbone.history.start();
+  Backbone.history.start({root: "/"});
    
   var mainLayout = new App.Layouts.MainLayout();
   $("body").prepend(mainLayout.render().$el);
 });
 
-$(function() {
+$(function(e) {
   App.start();
 });
 
