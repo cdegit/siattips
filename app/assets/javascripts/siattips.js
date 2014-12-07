@@ -9,6 +9,7 @@ App.addInitializer(function() {
   var router = Backbone.Router.extend({
     routes: {
       "articles/:id": "article_show",
+      "about": "about_show",
       "*path": "index"
     },
    

@@ -8,8 +8,8 @@ App.Layouts.MainLayout = Marionette.LayoutView.extend({
   
   viewClasses: {
     index: 'IndexView',
-    article_show: 'ArticleDetailView'
-
+    article_show: 'ArticleDetailView',
+    about_show: 'AboutView'
   },
 
   onRender: function() {
