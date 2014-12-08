@@ -43,3 +43,5 @@ gem 'ejs'
 gem 'twitter-bootstrap-rails'
 
 gem "figaro"
+
+gem "ransack"

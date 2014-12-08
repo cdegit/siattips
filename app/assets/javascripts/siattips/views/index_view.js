@@ -5,7 +5,23 @@ App.Views.IndexView = Marionette.ItemView.extend({
   ui: {
   	$featuredContainer: '.featured-container',
   	$collectionContainer: '.collection-container',
-    $filtersContainer: '.filter-control'
+    $filtersContainer: '.filter-control',
+    $searchForm: 'form',
+    $clearButton: '.clear-search'
+  },
+
+  events: {
+    'click @ui.$clearButton': function(e) {
+      var that = this;
+      
+      $("input", this.$el).val("")
+
+      this.searchArticles("");    
+      return false;
+    },
+    'submit @ui.$searchForm': function() {
+      this.searchArticles( $("input", this.$el).val() ); 
+    }
   },
 
   initialize: function(options) {
@@ -24,13 +40,15 @@ App.Views.IndexView = Marionette.ItemView.extend({
   },
 
   onRender: function() {
+    var that = this;
+
   	this.ui.$featuredContainer.append(this.featuredArticleView.render().$el);
   	this.ui.$collectionContainer.append(this.articlesCollectionView.render().$el);
     this.ui.$filtersContainer.prepend(this.categoriesCollectionView.render().$el);
 
     this.ui.$collectionContainer.imagesLoaded(function() {
       // Prepare layout options.
-      var options = {
+      that.wookmarkOptions = {
         itemWidth: 300, // Optional min width of a grid item
         autoResize: true, // This will auto-update the layout when the browser window is resized.
         container: $('.collection-container'), // Optional, used for some extra CSS styling
@@ -76,7 +94,7 @@ App.Views.IndexView = Marionette.ItemView.extend({
         }
 
       // Call the layout function.
-      handler.wookmark(options);
+      handler.wookmark(that.wookmarkOptions);
 
       filters.click(onClickFilter);
     });
@@ -86,5 +104,13 @@ App.Views.IndexView = Marionette.ItemView.extend({
     this.categoriesCollectionView.close();
     this.featuredContainer.close();
     this.filtersContainer.close();
+  },
+
+  searchArticles: function(query) {
+    var that = this;
+    App.router.collections.articles.fetch({data: {q: query } }).done(function() {
+      $('.collection-container .article').wookmark(that.wookmarkOptions);
+      $(window).trigger("resize");
+    });    
   }
 });

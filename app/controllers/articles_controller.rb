@@ -7,8 +7,10 @@ class ArticlesController < ApplicationController
   end
 
   def index
-    @articles = Article.all
-    render json: @articles, :include => :category
+    # @articles = Article.all
+    # @q = Article.search(params[:q])
+    @articles = Article.search(title_cont: params[:q]).result
+    render json: @articles #, :include => :category
   end
 
   def create
