@@ -2,7 +2,7 @@
 	<h2><a href="#articles/<%= id %>"><%- title %></a></h2>
 	<a href="<%= link %>" class="link" target="_blank">Link</a>
 	<div class="date-ranking-part">
-		<div class="date col-xs-5"><%= created_at %></div>
+		<div class="date col-xs-5"><%= I18n.l("date.formats.long", created_at) %></div>
 		<div class="ranking col-xs-5"></div>
 	</div>
 </div>

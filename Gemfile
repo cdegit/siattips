@@ -45,3 +45,6 @@ gem 'twitter-bootstrap-rails'
 gem "figaro"
 
 gem "ransack"
+
+gem "i18n-js"
+

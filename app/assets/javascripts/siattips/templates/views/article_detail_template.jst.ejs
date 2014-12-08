@@ -3,7 +3,7 @@
 	<div class="detail-article-content">
 		<h1><%= title %></h1>
 		<div class="detail-date-ranking-part">
-			<div class="date"><%= created_at %></div>
+			<div class="date"><%= I18n.l("date.formats.long", created_at) %></div>
 			<div class="ranking"></div>
 		</div>
 
