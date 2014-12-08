@@ -1,3 +1,20 @@
+$categories: (illustrator, sass);
+$category-colors: (#ff0000, #00ff00);
+
+@for $i from 1 through 2 {
+    .article.#{nth($categories, $i)} {
+    	border-top: 5px solid nth($category-colors, $i) !important;
+
+    	a {
+    		color: nth($category-colors, $i) !important;
+    	}
+
+		.ratings-view:hover:not(.rated) {
+			color: nth($category-colors, $i) !important;
+		}
+    }
+}
+
 // Place all the styles related to the welcome controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/

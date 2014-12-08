@@ -4,7 +4,8 @@ App.Views.ArticleDetailView = Marionette.ItemView.extend({
   childView: App.Views.ArticleListItemView,
 
   ui: {
-    $ranking: '.ranking'
+    $ranking: '.ranking',
+    $otherPostsContainer: '.other-posts-content'
   },
 
   initialize: function(options) {
@@ -16,13 +17,28 @@ App.Views.ArticleDetailView = Marionette.ItemView.extend({
     this.ratingsView = new App.Views.RatingsView({
       model: this.model
     });
+
+    if (this.model.get("category")) {
+      var category = new App.Models.Category({
+        id: this.model.get("category").id
+      });
+      category.fetch({async: false});
+      this.otherPostsCollectionView = new App.Views.RelatedArticlesCollectionView({
+        article: this.model,
+        category: category
+      });
+    }
   },
 
   onRender: function() {
     this.ui.$ranking.append(this.ratingsView.render().$el);
 
+    if (this.otherPostsCollectionView) {
+      this.ui.$otherPostsContainer.append(this.otherPostsCollectionView.render().$el);
+    }
+
     if (this.model.get("category")) {
-      this.$el.attr("data-filter-class", '["' + this.model.get("category").name + '"]' );
+      this.$el.addClass( this.model.get("category").name.toLowerCase() );
     }
   }
 });

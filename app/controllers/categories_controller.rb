@@ -7,7 +7,7 @@ class CategoriesController < ApplicationController
 
   def index
     @categories = Category.all
-    render json: @categories
+    render json: @categories, :include => :articles
   end
 
   def create
