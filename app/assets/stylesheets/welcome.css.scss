@@ -1,7 +1,7 @@
-$categories: (illustrator, sass, css, git, resources);
-$category-colors: (#ff9800, #c6538c, #00acc1, #9c27b0, #8bc34a);
+$categories: (illustrator, sass, css, git, resources, inspiration);
+$category-colors: (#ff9800, #c6538c, #00acc1, #9c27b0, #8bc34a, #d32f2f);
 
-@for $i from 1 through 5 {
+@for $i from 1 through 6 {
     .article.#{nth($categories, $i)}, .#{nth($categories, $i)} .detail-article, .other-posts-content.#{nth($categories, $i)} .article {
     	a {
     		color: nth($category-colors, $i);
@@ -168,6 +168,13 @@ body {
 
 	h2 {
 		font-size: 20px;
+	}
+
+	& > a {
+		text-overflow: ellipsis;
+		width: 100%;
+		display: inline-block;
+		overflow: hidden;
 	}
 }
 
