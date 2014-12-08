@@ -1,0 +1,18 @@
+<div class="new_article">
+	<h1>edit #siattip</h1>
+	<%= form_for @article, url: {action: "update"} do |f| %>
+	  <p>Title</p>	
+	  <%= text_field(:article, :title) %>
+	  <p>Text</p>	
+	  <%= text_area(:article, :text) %>
+	  <p>Link</p>	
+	  <%= text_field(:article, :link) %>
+	  <p>Image</p>	
+	  <%= text_field(:article, :thumb_url) %>
+	  <p>Category</p>	
+	  <%= text_field(:article, :category_id) %>
+	  <%= f.submit %>
+	<% end %>
+</div>
+
+

@@ -6,6 +6,17 @@ class ArticlesController < ApplicationController
 
   end
 
+  def edit
+    @article = Article.find(params[:id])
+  end
+
+  def update
+    @article = Article.find(params[:id])
+    @article.update_attributes(permitted_params)
+    @article.save
+    render json: @article, :include => :category
+  end
+
   def index
     # @articles = Article.all
     # @q = Article.search(params[:q])
