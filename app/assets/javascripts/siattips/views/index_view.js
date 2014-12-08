@@ -25,15 +25,17 @@ App.Views.IndexView = Marionette.ItemView.extend({
   },
 
   initialize: function(options) {
+    var that = this;
   	this.articlesCollectionView = new App.Views.ArticleCollectionView();
 
-  	var featuredModel = new App.Models.Article({
-  		id: 1
-  	});
-  	featuredModel.fetch({async: false});
-  	this.featuredArticleView = new App.Views.FeaturedArticleView({
-  		model: featuredModel
-  	});
+    this.featuredPromise = $.get("/api/articles/featured_article").done(function(response) {
+
+      var featuredModel = new App.Models.Article(response);
+      that.featuredArticleView = new App.Views.FeaturedArticleView({
+        model: featuredModel
+      });
+    });
+
 
     this.categoriesCollectionView = new App.Views.CategoryCollectionView();
 
@@ -42,7 +44,9 @@ App.Views.IndexView = Marionette.ItemView.extend({
   onRender: function() {
     var that = this;
 
-  	this.ui.$featuredContainer.append(this.featuredArticleView.render().$el);
+  	this.featuredPromise.done(function() {
+      that.ui.$featuredContainer.append(that.featuredArticleView.render().$el);
+    });
   	this.ui.$collectionContainer.append(this.articlesCollectionView.render().$el);
     this.ui.$filtersContainer.prepend(this.categoriesCollectionView.render().$el);
 

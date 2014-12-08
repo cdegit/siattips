@@ -2,11 +2,11 @@
 	<div class="row">
 		<div class="col-xs-6">
 			<h2><a href="#articles/<%= id %>"><%- title %></a></h2>
-			<p class="text"><%- text %></p>
+			<p class="text"><%= text.substr(0, 350) + "..." %></p>
 			<a href="<%= link %>" class="link" target="_blank"><%= link %></a>
 		</div>
 		<div class="col-xs-6">
-			<a href="#articles/<%= id %>"><img src="<%= thumb_url %>" class="image" /></a>
+			<a href="#articles/<%= id %>"><div class="featured-image" style='background-image: url("<%= thumb_url %>")' ></div></a>
 		</div>
 	</div>
 </div>

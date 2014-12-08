@@ -46,6 +46,11 @@ class ArticlesController < ApplicationController
     render json: @article
   end
 
+  def featured_article
+    @article = Article.offset(rand(Article.count)).first
+    render json: @article, :include => :category
+  end
+
 
 private
   def permitted_params

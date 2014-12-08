@@ -22,6 +22,10 @@ Rails.application.routes.draw do
       member do
         post 'add_rating'
       end
+
+      collection do
+        get 'featured_article'
+      end
     end
 
     resources :categories
