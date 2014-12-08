@@ -2,16 +2,22 @@ $categories: (illustrator, sass);
 $category-colors: (#ff0000, #00ff00);
 
 @for $i from 1 through 2 {
-    .article.#{nth($categories, $i)} {
-    	border-top: 5px solid nth($category-colors, $i) !important;
-
+    .article.#{nth($categories, $i)}, .#{nth($categories, $i)} .detail-article, .other-posts-content.#{nth($categories, $i)} .article {
     	a {
-    		color: nth($category-colors, $i) !important;
+    		color: nth($category-colors, $i);
+    	}
+
+    	h2 a {
+    		color: black;
     	}
 
 		.ratings-view:hover:not(.rated) {
 			color: nth($category-colors, $i) !important;
 		}
+    }
+
+    .article.#{nth($categories, $i)} {
+    	border-top: 5px solid nth($category-colors, $i) !important;
     }
 }
 

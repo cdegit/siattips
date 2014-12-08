@@ -39,6 +39,7 @@ App.Views.ArticleDetailView = Marionette.ItemView.extend({
 
     if (this.model.get("category")) {
       this.$el.addClass( this.model.get("category").name.toLowerCase() );
+      this.ui.$otherPostsContainer.addClass( this.model.get("category").name.toLowerCase() );
     }
   }
 });

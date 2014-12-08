@@ -12,9 +12,5 @@ App.Views.RelatedArticleListItemView = Marionette.ItemView.extend({
   	});
 
   	this.ui.$ratingsContainer.append(this.ratingsView.render().$el);
-
-    if (this.model.get("category")) {
-      this.$el.addClass( this.model.get("category").name.toLowerCase() );
-    }
   }
 });
