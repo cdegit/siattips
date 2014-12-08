@@ -1,7 +1,7 @@
 $categories: (illustrator, sass, css, git, resources);
 $category-colors: (#ff9800, #c6538c, #00acc1, #9c27b0, #8bc34a);
 
-@for $i from 1 through 2 {
+@for $i from 1 through 5 {
     .article.#{nth($categories, $i)}, .#{nth($categories, $i)} .detail-article, .other-posts-content.#{nth($categories, $i)} .article {
     	a {
     		color: nth($category-colors, $i);

@@ -25,6 +25,7 @@
 
 //= require jquery.imagesloaded
 //= require jquery.wookmark
+//= require jquery.truncate
 
 //= require siattips
 //= require_tree ./siattips/templates

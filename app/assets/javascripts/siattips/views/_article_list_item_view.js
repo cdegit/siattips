@@ -17,5 +17,7 @@ App.Views.ArticleListItemView = Marionette.ItemView.extend({
       this.$el.attr("data-filter-class", '["' + this.model.get("category").name + '"]' );
       this.$el.addClass( this.model.get("category").name.toLowerCase() );
     }
+
+    $(".text", this.$el).html($.truncate(this.model.get("text"), {length: 350}));
   }
 });
