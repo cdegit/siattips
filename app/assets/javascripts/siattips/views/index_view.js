@@ -21,6 +21,7 @@ App.Views.IndexView = Marionette.ItemView.extend({
     },
     'submit @ui.$searchForm': function() {
       this.searchArticles( $("input", this.$el).val() ); 
+      return false;
     }
   },
 
