@@ -1,5 +1,5 @@
-$categories: (illustrator, sass);
-$category-colors: (#ff0000, #00ff00);
+$categories: (illustrator, sass, css, git, resources);
+$category-colors: (#ff9800, #c6538c, #00acc1, #9c27b0, #8bc34a);
 
 @for $i from 1 through 2 {
     .article.#{nth($categories, $i)}, .#{nth($categories, $i)} .detail-article, .other-posts-content.#{nth($categories, $i)} .article {
@@ -19,6 +19,12 @@ $category-colors: (#ff0000, #00ff00);
 
     .article.#{nth($categories, $i)} {
     	border-top: 5px solid nth($category-colors, $i) !important;
+    }
+
+    #filters .#{nth($categories, $i)} {
+    	&:hover, &.active {
+    		background: nth($category-colors, $i) !important;
+    	}
     }
 }
 
@@ -92,7 +98,7 @@ body {
 }
 
 #filters li {
-  color: #777;
+  color: whitesmoke;
   font-size: 12px;
   float: left;
   padding: 6px 0 4px 0;
