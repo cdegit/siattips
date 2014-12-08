@@ -10,7 +10,7 @@ class ArticlesController < ApplicationController
     # @articles = Article.all
     # @q = Article.search(params[:q])
     @articles = Article.search(title_cont: params[:q]).result
-    render json: @articles #, :include => :category
+    render json: @articles, :include => :category
   end
 
   def create
